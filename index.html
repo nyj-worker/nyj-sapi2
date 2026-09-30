@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스마트 행정혁신 AI 러닝랩 | 공공 실무 맞춤형 AI & 바이브코딩 학습 플랫폼</title>
+  <meta name="description" content="공공기관 직원을 위한 생성형 AI 안전 활용 가이드와 비개발자 바이브코딩(Vibe Coding) 실무 웹도구 자체 제작 원스톱 러닝랩">
+  
+  <!-- 스타일시트 -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- 아이콘 (Lucide Icons) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- 웹 접근성 스킵 링크 -->
+  <a href="#main-content" class="skip-link">본문 바로가기</a>
+
+  <div class="app-container">
+    <!-- ================= 왼쪽 사이드바 ================= -->
+    <aside class="app-sidebar" id="app-sidebar" aria-label="메인 메뉴">
+      <div class="sidebar-header">
+        <span class="brand-badge">스마트 행정혁신</span>
+        <h1 class="brand-title">
+          <span>🏛️</span> AI 러닝랩
+        </h1>
+        <p class="brand-subtitle">공공 AI & 바이브코딩 실무 연구동아리</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">학습 & 챌린지</div>
+        <a class="nav-item active" data-tab="home" id="nav-home" role="button" tabindex="0">
+          <span class="nav-icon">🏠</span>
+          <span>홈 (대시보드)</span>
+        </a>
+        <a class="nav-item" data-tab="course" id="nav-course" role="button" tabindex="0">
+          <span class="nav-icon">📖</span>
+          <span>AI 학습 코스</span>
+          <span class="nav-badge-count" id="badge-course-count">0/16</span>
+        </a>
+        <a class="nav-item" data-tab="quiz" id="nav-quiz" role="button" tabindex="0">
+          <span class="nav-icon">🎯</span>
+          <span>퀴즈 챌린지</span>
+          <span class="nav-badge-count" id="badge-wrong-count" style="display:none; background:#ef4444;"></span>
+        </a>
+
+        <div class="nav-section-label" style="margin-top: 14px;">바이브코딩 실습</div>
+        <a class="nav-item" data-tab="vibe" id="nav-vibe" role="button" tabindex="0">
+          <span class="nav-icon">🛠️</span>
+          <span>바이브코딩 입문</span>
+        </a>
+        <a class="nav-item" data-tab="prompt" id="nav-prompt" role="button" tabindex="0">
+          <span class="nav-icon">🪄</span>
+          <span>프롬프트 실습실</span>
+        </a>
+        <a class="nav-item" data-tab="mission" id="nav-mission" role="button" tabindex="0">
+          <span class="nav-icon">🚀</span>
+          <span>만들기 미션</span>
+          <span class="nav-badge-count" id="badge-mission-count">0/4</span>
+        </a>
+
+        <div class="nav-section-label" style="margin-top: 14px;">학습 센터</div>
+        <a class="nav-item" data-tab="my-learning" id="nav-my-learning" role="button" tabindex="0">
+          <span class="nav-icon">📊</span>
+          <span>나의 학습 & 데이터</span>
+        </a>
+      </nav>
+
+      <!-- 사이드바 하단: 내 레벨 & XP -->
+      <div class="sidebar-footer">
+        <div class="user-level-card">
+          <div class="user-level-head">
+            <span class="user-level-title" id="sb-level-title">🌱 AI 새싹</span>
+            <span class="user-xp-badge" id="sb-level-xp">0 XP</span>
+          </div>
+          <div class="level-progress-bar">
+            <div class="level-progress-fill" id="sb-level-fill" style="width: 0%;"></div>
+          </div>
+          <div class="level-progress-text">
+            <span id="sb-next-tier">다음: AI 탐험가</span>
+            <span id="sb-percent-text">0%</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ================= 메인 본문 컨테이너 ================= -->
+    <main class="app-main" id="main-content">
+      <!-- 모바일 전용 탑바 -->
+      <header class="mobile-topbar">
+        <button class="mobile-menu-btn" id="mobile-toggle-btn" aria-label="메뉴 열기">☰</button>
+        <span class="mobile-brand">🏛️ AI 러닝랩</span>
+        <span id="mobile-xp-badge" style="font-size: 13px; font-weight: 700; color: #fbbf24;">0 XP</span>
+      </header>
+
+      <div class="main-content">
+        <!-- 1. 홈 대시보드 탭 -->
+        <section class="tab-page active" id="tab-home" aria-labelledby="home-title">
+          <div class="hero-banner">
+            <span class="hero-tag">스마트 행정혁신의 첫걸음</span>
+            <h2 class="hero-title" id="home-title">AI를 이해하고, 직접 만들어보는 행정혁신의 시작</h2>
+            <p class="hero-subtitle">
+              하루 15분 개념 학습부터 우리 업무에 필요한 웹사이트 제작까지! 비개발자 공무원을 위한 실무 맞춤형 러닝랩입니다.
+            </p>
+            <div class="hero-actions">
+              <button class="btn btn-primary btn-lg" id="btn-hero-start">
+                <span>🚀 학습 시작하기</span>
+              </button>
+              <button class="btn btn-secondary btn-lg" id="btn-hero-prompt">
+                <span>🪄 프롬프트 실습실 열기</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 이용 4단계 안내 -->
+          <div class="guide-steps-grid">
+            <div class="guide-step-card">
+              <span class="step-num">STEP 1</span>
+              <h3 class="step-title">16개 차시 개념 학습</h3>
+              <p class="step-desc">공공 보안 지침과 행정 프롬프트 기술을 15분 단위로 차근차근 익힙니다.</p>
+            </div>
+            <div class="guide-step-card">
+              <span class="step-num">STEP 2</span>
+              <h3 class="step-title">복습 퀴즈 & XP 획득</h3>
+              <p class="step-desc">차시별 퀴즈를 풀고 경험치를 쌓아 레벨업과 성취 배지를 획득하세요.</p>
+            </div>
+            <div class="guide-step-card">
+              <span class="step-num">STEP 3</span>
+              <h3 class="step-title">프롬프트 설계 & 복사</h3>
+              <p class="step-desc">10단계 마법사로 내 부서 맞춤형 제작 프롬프트를 1초 만에 완성합니다.</p>
+            </div>
+            <div class="guide-step-card">
+              <span class="step-num">STEP 4</span>
+              <h3 class="step-title">AI Studio에서 웹앱 제작</h3>
+              <p class="step-desc">무료 Google AI Studio에서 코드를 구동하고 회고를 기록하여 완주합니다.</p>
+            </div>
+          </div>
+
+          <!-- 대시보드 요약 지표 카드 -->
+          <div class="grid-4" style="margin-bottom: 28px;">
+            <div class="card stat-widget">
+              <div class="stat-icon-box stat-icon-teal">📖</div>
+              <div class="stat-info">
+                <div class="stat-label">학습 진도율</div>
+                <div class="stat-value" id="dash-lesson-stat">0 / 16 차시 (0%)</div>
+              </div>
+            </div>
+            <div class="card stat-widget">
+              <div class="stat-icon-box stat-icon-amber">⚡</div>
+              <div class="stat-info">
+                <div class="stat-label">누적 경험치</div>
+                <div class="stat-value" id="dash-xp-stat">0 XP</div>
+              </div>
+            </div>
+            <div class="card stat-widget">
+              <div class="stat-icon-box stat-icon-blue">🎯</div>
+              <div class="stat-info">
+                <div class="stat-label">퀴즈 정답 수</div>
+                <div class="stat-value" id="dash-quiz-stat">0 / 48 문제</div>
+              </div>
+            </div>
+            <div class="card stat-widget">
+              <div class="stat-icon-box stat-icon-purple">🏆</div>
+              <div class="stat-info">
+                <div class="stat-label">획득 배지</div>
+                <div class="stat-value" id="dash-badge-stat">0 / 6 개</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 홈 2열 레이아웃: 추천 이어서 학습 & 오늘의 퀴즈 위젯 -->
+          <div class="grid-2">
+            <div class="card">
+              <h3 class="card-title"><span>▶️</span> 이어서 학습할 차시</h3>
+              <div id="home-resume-container" style="min-height: 120px;">
+                <!-- 동적 렌더링 -->
+              </div>
+            </div>
+            <div class="card">
+              <h3 class="card-title"><span>💡</span> 오늘의 추천 퀴즈 (5문제 챌린지)</h3>
+              <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">
+                학습한 내용을 매일 가볍게 점검해 보세요. 정답 맞힐 때마다 10 XP가 지급됩니다!
+              </p>
+              <button class="btn btn-primary" id="btn-start-daily-quiz">
+                <span>🎯 오늘의 5문제 풀러가기</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. AI 학습 코스 탭 -->
+        <section class="tab-page" id="tab-course" aria-labelledby="course-title">
+          <div class="page-header">
+            <span class="page-tag">4주 8모듈 16차시 정규 커리큘럼</span>
+            <h2 class="page-title" id="course-title">AI 학습 코스</h2>
+            <p class="page-desc">
+              공공 생성형 AI 기초 개념부터 보안 가이드라인, 프롬프트 엔지니어링, 바이브코딩 웹앱 구축까지 단계별로 체득합니다.
+            </p>
+          </div>
+
+          <div class="course-layout">
+            <!-- 좌측 차시 목록 네비게이터 -->
+            <div class="card curriculum-nav-card">
+              <div style="font-size: 14px; font-weight: 800; margin-bottom: 12px; color: var(--primary-slate);">
+                📑 전체 차시 목차
+              </div>
+              <div id="curriculum-list-container">
+                <!-- 동적 렌더링 -->
+              </div>
+            </div>
+
+            <!-- 우측 본문 뷰어 -->
+            <div class="card lesson-viewer-card" id="lesson-viewer">
+              <!-- 동적 렌더링 -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. 퀴즈 챌린지 탭 -->
+        <section class="tab-page" id="tab-quiz" aria-labelledby="quiz-title">
+          <div class="page-header">
+            <span class="page-tag">이해와 판단력 점검</span>
+            <h2 class="page-title" id="quiz-title">퀴즈 챌린지</h2>
+            <p class="page-desc">
+              단순 암기가 아닌 실제 행정 현장에서의 올바른 대처를 확인하는 48개 문항 풀이입니다.
+            </p>
+          </div>
+
+          <!-- 서브 탭: 오늘의 5문제 / 차시별 퀴즈 / 오답 복습 -->
+          <div class="quiz-tabs">
+            <button class="quiz-tab-btn active" data-subtab="daily">⚡ 오늘의 5문제</button>
+            <button class="quiz-tab-btn" data-subtab="by-lesson">📚 차시별 전체 퀴즈</button>
+            <button class="quiz-tab-btn" data-subtab="wrong-review">
+              <span>✍️ 오답 복습 노트</span>
+              <span id="quiz-tab-wrong-count" style="margin-left: 4px; font-size: 12px; font-weight: 700;">(0)</span>
+            </button>
+          </div>
+
+          <div id="quiz-content-container">
+            <!-- 동적 렌더링 -->
+          </div>
+        </section>
+
+        <!-- 4. 바이브코딩 입문 탭 -->
+        <section class="tab-page" id="tab-vibe" aria-labelledby="vibe-title">
+          <div class="page-header">
+            <span class="page-tag">비개발자를 위한 웹 소프트웨어 제작</span>
+            <h2 class="page-title" id="vibe-title">바이브코딩 입문 & 공공 도구 가이드</h2>
+            <p class="page-desc">
+              자연어로 컴퓨터와 대화하며 나만의 업무 도구를 만드는 최신 패러다임과 핵심 생태계를 안내합니다.
+            </p>
+          </div>
+
+          <!-- 3단계 사이클 배너 -->
+          <div class="vibe-cycle-banner">
+            <h3 style="font-size: 18px; font-weight: 800; color: var(--primary-slate);">
+              🔄 바이브코딩 3단계 사이클
+            </h3>
+            <p style="font-size: 14.5px; color: var(--text-muted); margin-top: 4px;">
+              코딩 문법 암기 대신, 자연어로 요청하고 즉시 확인하며 대화로 고쳐나가는 순환 루프입니다.
+            </p>
+            <div class="cycle-steps-grid">
+              <div class="cycle-step-card">
+                <h4>1. 요구사항 정의 (Prompting)</h4>
+                <p style="font-size: 13.5px; color: #475569;">화면 레이아웃, 버튼 동작, 데이터 규칙을 일상의 자연어로 구체적으로 지시합니다.</p>
+              </div>
+              <div class="cycle-step-card">
+                <h4>2. 즉각 실행 & 검증 (Preview)</h4>
+                <p style="font-size: 13.5px; color: #475569;">Google AI Studio 등의 미리보기 창에서 직접 버튼을 누르고 데이터를 넣어보며 확인합니다.</p>
+              </div>
+              <div class="cycle-step-card">
+                <h4>3. 대화형 디버깅 (Refining)</h4>
+                <p style="font-size: 13.5px; color: #475569;">"버튼을 눌렀을 때 반응이 없어, 콘솔 에러 없이 고쳐줘"와 같이 대화로 품질을 높입니다.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 도구 카드 6종 그리드 -->
+          <h3 style="font-size: 20px; font-weight: 800; color: var(--primary-slate); margin-bottom: 16px;">
+            🛠️ 실전 도구 카드 6선
+          </h3>
+          <div class="tool-grid" id="tools-container">
+            <!-- 동적 렌더링 -->
+          </div>
+
+          <!-- 공식 레퍼런스 4선 -->
+          <h3 style="font-size: 20px; font-weight: 800; color: var(--primary-slate); margin-bottom: 16px;">
+            📚 공식 학습 자료 & 추천 레퍼런스
+          </h3>
+          <div class="grid-2" id="references-container" style="margin-bottom: 36px;">
+            <!-- 동적 렌더링 -->
+          </div>
+
+          <!-- 공공행정 10대 용어사전 -->
+          <h3 style="font-size: 20px; font-weight: 800; color: var(--primary-slate); margin-bottom: 16px;">
+            📖 공공행정 10대 웹 테크 용어사전
+          </h3>
+          <div class="glossary-grid" id="glossary-container">
+            <!-- 동적 렌더링 -->
+          </div>
+        </section>
+
+        <!-- 5. 프롬프트 실습실 탭 -->
+        <section class="tab-page" id="tab-prompt" aria-labelledby="prompt-title">
+          <div class="page-header">
+            <span class="page-tag">핵심 실습 기능</span>
+            <h2 class="page-title" id="prompt-title">프롬프트 실습실</h2>
+            <p class="page-desc">
+              10단계 마법사로 나만의 맞춤형 웹앱 프롬프트를 조합하거나, 공공 실무에 즉시 투입 가능한 표준 템플릿을 복사해 사용하세요.
+            </p>
+          </div>
+
+          <div class="prompt-lab-tabs">
+            <button class="quiz-tab-btn active" data-subtab="builder">🪄 10단계 프롬프트 빌더</button>
+            <button class="quiz-tab-btn" data-subtab="templates">📋 6대 기본 템플릿</button>
+            <button class="quiz-tab-btn" data-subtab="handson">🎯 핸즈온 5선 프롬프트 팩</button>
+            <button class="quiz-tab-btn" data-subtab="debug">🚨 상황별 오류 수정 프롬프트</button>
+            <button class="quiz-tab-btn" data-subtab="saved">💾 내가 저장한 프롬프트</button>
+          </div>
+
+          <div id="prompt-content-container">
+            <!-- 동적 렌더링 -->
+          </div>
+        </section>
+
+        <!-- 6. 만들기 미션 탭 -->
+        <section class="tab-page" id="tab-mission" aria-labelledby="mission-title">
+          <div class="page-header">
+            <span class="page-tag">단계별 웹사이트 제작 실습</span>
+            <h2 class="page-title" id="mission-title">만들기 미션</h2>
+            <p class="page-desc">
+              입문용 동아리 소개 사이트부터 실무 체크리스트, 퀴즈 앱까지 직접 Google AI Studio에서 완성하고 회고를 기록하세요.
+            </p>
+          </div>
+
+          <div id="missions-container">
+            <!-- 동적 렌더링 -->
+          </div>
+        </section>
+
+        <!-- 7. 나의 학습 & 데이터 탭 -->
+        <section class="tab-page" id="tab-my-learning" aria-labelledby="my-learning-title">
+          <div class="page-header">
+            <span class="page-tag">학습 기록 & 브라우저 데이터 관리</span>
+            <h2 class="page-title" id="my-learning-title">나의 학습 & 데이터 센터</h2>
+            <p class="page-desc">
+              학습 기록은 현재 브라우저의 localStorage에 안전하게 보관됩니다. JSON 파일 백업과 복원을 통해 언제든 안전하게 관리하세요.
+            </p>
+          </div>
+
+          <!-- 상단 프로필 & 배지 카드 -->
+          <div class="card" style="margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <h3 style="font-size: 20px; font-weight: 800; color: var(--text-main);">
+                  🎖️ 나의 성장 현황: <span id="my-tier-name">AI 새싹</span>
+                </h3>
+                <p style="font-size: 14px; color: var(--text-muted);" id="my-tier-desc">
+                  생성형 AI와 공공행정 혁신의 첫걸음을 내딛은 학습자
+                </p>
+              </div>
+              <div style="font-size: 24px; font-weight: 800; color: var(--accent-amber);">
+                <span id="my-total-xp">0</span> <span style="font-size: 16px;">XP</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 14px;">
+              <h4 style="font-size: 14px; font-weight: 700; color: var(--text-muted); margin-bottom: 8px;">
+                획득한 성취 배지 (6종)
+              </h4>
+              <div class="badges-grid" id="my-badges-container">
+                <!-- 동적 렌더링 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 진도 상세 현황 & 퀴즈 분석 -->
+          <div class="grid-2" style="margin-bottom: 24px;">
+            <div class="card">
+              <h3 class="card-title"><span>📊</span> 차시 학습 완료 현황</h3>
+              <div id="my-lessons-status-list" style="max-height: 280px; overflow-y: auto;">
+                <!-- 동적 렌더링 -->
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title"><span>🎯</span> 퀴즈 풀이 통계</h3>
+              <div style="padding: 10px 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14.5px;">
+                  <span>첫 시도 정답률</span>
+                  <strong id="my-quiz-first-rate">0%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14.5px;">
+                  <span>현재 오답 문항 수</span>
+                  <strong id="my-quiz-wrong-count" style="color: var(--accent-rose);">0개</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 14.5px;">
+                  <span>복습 완료 문항 수</span>
+                  <strong id="my-quiz-reviewed-count" style="color: var(--accent-emerald);">0개</strong>
+                </div>
+              </div>
+              <div style="margin-top: 20px;">
+                <button class="btn btn-secondary btn-sm" id="btn-go-wrong-notes" style="width: 100%;">
+                  <span>✍️ 오답 복습 노트 바로가기</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 데이터 백업 & 초기화 관리 -->
+          <div class="card">
+            <h3 class="card-title"><span>💾</span> 학습 데이터 백업 & 복원</h3>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 18px;">
+              브라우저 캐시 삭제 시에도 안전하도록 학습 기록을 JSON 파일로 내보내어 내 PC에 보관할 수 있습니다.
+            </p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <button class="btn btn-primary" id="btn-export-json">
+                <span>📥 JSON 파일로 내보내기 (백업)</span>
+              </button>
+              <label class="btn btn-secondary" style="cursor: pointer;">
+                <span>📤 JSON 파일 가져오기 (복원)</span>
+                <input type="file" id="file-import-json" accept=".json" style="display: none;">
+              </label>
+              <button class="btn btn-secondary" id="btn-reset-data" style="color: var(--accent-rose); border-color: #fecdd3;">
+                <span>⚠️ 전체 학습 기록 초기화</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- 토스트 알림 컨테이너 -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- 메인 통합 스크립트 연결 (데스크탑 file:// 환경 및 웹 서버 환경 완벽 지원) -->
+  <script src="js/app.bundle.js"></script>
+</body>
+</html>
